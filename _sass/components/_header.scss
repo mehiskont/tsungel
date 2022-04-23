@@ -1,0 +1,73 @@
+/* ======================================
+   HEADER STYLES
+========================================= */
+#masthead {
+   position: absolute;
+   top: 43px;
+   left: 0;
+   width: 100%;
+       z-index: 999;
+   .main-logo {
+      &:hover {
+         img {
+            transform: rotate(360deg);
+            
+         }
+      }
+      img {
+         max-width: 163px;
+         transition: $transition;
+         @media (max-width: $laptop) {
+            max-width: 120px;
+         }
+         @media (max-width: $tablet) {
+            max-width: 100px;
+         }
+         
+      }
+   }
+   .contact-modal {
+      margin-left: 20px;
+      margin-right: 140px;
+       @media(max-width:$laptop) {
+          margin-right:48px;
+       }
+      @media (max-width: $tablet) {
+         margin-left: 20px;
+         margin-right: 0px;
+      }
+   }
+   .social-icon {
+      display: inline-block;
+      margin-left: 20px;
+      transition: $transition;
+      @media (max-width: $tablet) {
+         margin-left: 0;
+         margin-right: 20px;
+      }
+      &--holder {
+         display: inline-block;
+         background-size: contain !important;
+         transition: $transition;
+         position: relative;
+         &:hover {
+            transform: scale(0.95);
+         }
+         &.fb {
+            background: url("../assets/icon--fb.png") no-repeat center;
+            width: 43px;
+            height: 43px;
+         }
+         &.ig {
+            background: url("../assets/icon--ig.png") no-repeat center;
+            width: 43px;
+            height: 43px;
+         }
+         /* &.yt {
+            background: url("../assets/icon--yt.svg") no-repeat center;
+            width: 32px;
+            height: 23px;
+        } */
+      }
+   }
+}

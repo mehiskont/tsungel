@@ -1,0 +1,25 @@
+
+/* ======================================
+VENDORS & CORE
+========================================= */
+@import "./vendors/bulma-custom";
+@import "./core/fonts";
+@import "./core/variables";
+@import "./core/buttons";
+/* ======================================
+COMPONENTS 
+========================================= */
+@import "./components/header";
+@import "./components/footer";
+@import "./components/modal";
+/* ======================================
+LAYOUTS
+========================================= */
+@import "./layout/home";
+
+/* ======================================
+    MAIN STYLES
+========================================= */
+.fouc-fix {
+    visibility: visible !important;
+}

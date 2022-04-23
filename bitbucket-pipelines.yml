@@ -1,0 +1,28 @@
+# This is a sample build configuration for JavaScript.
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        name: Test and build
+        caches:
+          - node
+        script: # Modify the commands below to build your repository.
+          - npm install
+          #- npm test
+          - npm run build
+    - step:
+        name: Deploy to production
+        deployment: production   # can be test, staging or production.
+        # trigger: manual   Uncomment to make this a manual deployment.
+        script:
+          - echo "Deploying to production"
+          - apt-get update
+          - apt-get -qq install git-ftp
+          - git config git-ftp.syncroot .
+          - git ftp init --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://$FTP_HOST/$FTP_SITE_ROOT
+

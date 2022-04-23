@@ -1,0 +1,28 @@
+/* Button styles
+================================================ */
+a.button {
+    background: $red;
+    border-color: $red;
+    color: $yellow;
+    font-size: 26px;
+    height: auto;
+    border-radius: 36px;
+    padding: 3px 19px;
+    line-height: 1;
+    min-width: 175px;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+    &.button-yellow,
+    &:hover {
+        background: $yellow;
+        border-color: $yellow;
+        color: $red;
+    }
+    &.button-yellow {
+        &:hover {
+            background: $red;
+            border-color: $red;
+            color: $yellow;
+        }
+    }
+}

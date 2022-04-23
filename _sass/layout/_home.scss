@@ -1,0 +1,178 @@
+/* ======================================
+   Homepage specific styles
+========================================= */
+html {
+   background-color: #000;
+}
+.page-template-template-landing {
+   //background:url('../assets/background.jpg') no-repeat center;
+   background-size: cover !important;
+   height: 100vh;
+   background-color: #000;
+   background-size: cover !important;
+   background-position: center !important;
+   .balta {
+      transform: rotate(-44deg);
+      top: 33%;
+      left: 0;
+      position: absolute;
+      @media (max-width: $laptop) {
+         max-width: 300px;
+      }
+   }
+   .bat {
+      position: absolute;
+      transform-origin: 50% 50%;
+      top: 12%;
+      left: 33%;
+      max-width: 250px;
+      @media (max-width: $laptop) {
+         max-width: 150px;
+      }
+   }
+   .trees {
+      position: absolute;
+      max-width: 350px;
+      z-index: 0;
+      @media (max-width: $laptop) {
+         max-width: 250px;
+      }
+      @media(max-width:$mobile) {
+         max-width: 200px;
+      }
+      &-1 {
+         right: 34%;
+         top: 12%;
+      }
+      &-2 {
+         right: 23%;
+         top: 27%;
+      }
+      &-3 {
+         right: 5%;
+         top: 38%;
+      }
+   }
+   .hands {
+      transform: rotate(180deg);
+      max-width: 500px;
+      @media (max-width: $laptop) {
+         max-width: 250px;
+      }
+      &.hands-2 {
+         position: absolute;
+         bottom: 0;
+         right: 0;
+         z-index: 2;
+         width: 100%;
+         max-width: 40%;
+      }
+
+      &.hands-1 {
+         position: absolute;
+         left: 0;
+         bottom: 0;
+         width: 100%;
+      }
+   }
+   .tiger {
+      position: absolute;
+      right: 3%;
+      bottom: -50px;
+      max-width: 400px;
+      z-index: 1;
+      @media (max-width: $laptop) {
+         max-width: 250px;
+      }
+   }
+   .bug {
+      position: absolute;
+      right: 0;
+      top: 125px;
+      max-width: 200px;
+      @media (max-width: $laptop) {
+         max-width: 125px;
+      }
+      @media (max-width: $mobile) {
+         top: 20px;
+      }
+   }
+   .frog {
+      position: absolute;
+      left: 31%;
+      top: 41%;
+      max-width: 130px;
+      @media (max-width: $laptop) {
+         max-width: 72px;
+      }
+   }
+   .snake {
+      position: absolute;
+      right: 50%;
+      bottom: 20px;
+      max-width: 200px;
+      z-index: 2;
+      @media (max-width: $laptop) {
+         max-width: 125px;
+      }
+      @media (max-width: $mobile) {
+         left: 20px;
+         right: initial;
+      }
+   }
+   .croc {
+      position: absolute;
+      left: 4%;
+      bottom: 2%;
+      max-width: 350px;
+      z-index: 2;
+      @media (max-width: $laptop) {
+         max-width: 250px;
+      }
+   }
+   .apes {
+      position: absolute;
+      right: 24%;
+      top: 43%;
+      z-index: 1;
+      max-width: 550px;
+      @media (max-width: $laptop) {
+         max-width: 400px;
+      }
+      @media (max-width: $mobile) {
+         right: 5%;
+         max-width: 80%;
+      }
+   }
+}
+.shake-animation {
+   &:hover {
+      animation: shake-animation 6.72s ease forwards;
+   }
+}
+@keyframes shake-animation {
+   0% {
+      transform: translate(0, 0);
+   }
+   1.78571% {
+      transform: translate(5px, 0);
+   }
+   3.57143% {
+      transform: translate(0, 0);
+   }
+   5.35714% {
+      transform: translate(5px, 0);
+   }
+   7.14286% {
+      transform: translate(0, 0);
+   }
+   8.92857% {
+      transform: translate(5px, 0);
+   }
+   10.71429% {
+      transform: translate(0, 0);
+   }
+   100% {
+      transform: translate(0, 0);
+   }
+}

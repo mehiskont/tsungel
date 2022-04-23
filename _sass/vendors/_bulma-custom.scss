@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* ======================================
+   BULMA VARIABLES
+========================================= */
+// Update Bulma's global variables
+$family-sans-serif: "Attic", sans-serif;
+
+// site specific containers
+$gap: 16px;
+$fullhd: 944px + (2 * $gap);
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/grid/_all.sass";
+@import "../node_modules/bulma/sass/grid/columns.sass";
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
+@import "../node_modules/bulma/sass/helpers/_all.sass";
+@import "../node_modules/bulma-modal-fx/dist/css/modal-fx.min.css";
+.hide {
+   display: none !important;
+}
+.is-hidden-mobile {
+   @media(max-width:$tablet) {
+      display:none;
+   }
+}
+.is-hidden-desktop {
+   @media(min-width:$tablet) {
+      display:none;
+   }  
+}
+.container {
+      max-width:90%!important;
+   width:100%!important;
+}
