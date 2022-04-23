@@ -24,5 +24,5 @@ pipelines:
           - apt-get update
           - apt-get -qq install git-ftp
           - git config git-ftp.syncroot .
-          - git ftp init --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://$FTP_HOST/$FTP_SITE_ROOT
+          - git ftp push --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://$FTP_HOST/$FTP_SITE_ROOT
 

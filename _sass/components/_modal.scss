@@ -44,6 +44,9 @@
     width: auto;
     color: $red;
     margin-top: -10%;
+    a {
+        color:$red;
+    }
       @media(max-width:$mobile) {
           width:100%;
           overflow:hidden;
