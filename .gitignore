@@ -1,0 +1,42 @@
+# WordPress core files
+wordpress/wp-admin/
+wordpress/wp-includes/
+wordpress/index.php
+wordpress/license.txt
+wordpress/readme.html
+wordpress/wp-*.php
+wordpress/*.php
+
+# WordPress content exceptions
+\!wordpress/wp-content/
+
+# Specific WordPress content
+wordpress/wp-content/plugins/*
+\!wordpress/wp-content/plugins/index.php
+wordpress/wp-content/uploads/*
+\!wordpress/wp-content/uploads/.htaccess
+wordpress/wp-content/upgrade/*
+wordpress/wp-content/backup-db/*
+wordpress/wp-content/cache/*
+wordpress/wp-content/backups/*
+
+# Themes - ignore default WordPress themes
+wordpress/wp-content/themes/twenty*/
+
+# Environment files
+.env
+*.log
+
+# Database backups
+*.sql
+*.sql.gz
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+EOL < /dev/null
