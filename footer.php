@@ -7,8 +7,9 @@
 <?php get_template_part('partials/modal','content'); ?>
 <?php get_template_part('partials/modal','menu'); ?>
 <?php get_template_part('partials/modal','story'); ?>
+<?php get_template_part('partials/modal','facebook-feed'); ?>
     <?php wp_footer(); ?>
-    <!-- Clean, minimal modal script with unique class names -->
+    <!-- Modal Script - Vanilla JS implementation -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Modal trigger buttons with new class names
@@ -31,7 +32,14 @@
             var targetModal = document.getElementById('modal-' + modalId);
             if (targetModal) {
                 targetModal.classList.add('is-active');
-                console.log('Opened modal:', modalId);
+                
+                // Explicitly log for debugging
+                console.log('Opened modal:', modalId, 'Modal ID:', targetModal.id);
+                
+                // Trigger a window resize event to ensure scroll areas recalculate dimensions
+                setTimeout(function() {
+                    window.dispatchEvent(new Event('resize'));
+                }, 300);
             } else {
                 console.error('Modal not found:', modalId);
             }
@@ -80,7 +88,7 @@
             }
         });
         
-        console.log('Modal system initialized');
+        console.log('Modal system initialized - Vanilla JS implementation');
     });
     </script>
     </body>

@@ -8,27 +8,29 @@
                 <div class="modal-content--inner">
                     <div class="modal-story-content box">
                     <img class="box--bg" src="<?php bloginfo('template_url'); ?>/assets/img--menumodal.png" alt="story bg">
-                        <div class="box--content">
-                            <?php
-                            // Get the story content
-                            if(function_exists('get_field')) {
-                                $story_content = get_field('our-story', 'option');
-                                
-                                if(!empty($story_content)) {
-                                    // Simple solution - display with positioning to fit in the oval
-                                    echo '<div class="story-text">' . $story_content . '</div>';
-                                } else {
-                                    // Only show to administrators
-                                    if(current_user_can('administrator')) {
-                                        echo '<div class="admin-notice">';
-                                        echo '<p><strong>Admin Notice:</strong> Please add content to the "Our Story" field in Theme Settings.</p>';
-                                        echo '</div>';
+                        <div class="box--content scrollable-content">
+                            <div class="scroll-container">
+                                <?php
+                                // Get the story content
+                                if(function_exists('get_field')) {
+                                    $story_content = get_field('our-story', 'option');
+                                    
+                                    if(!empty($story_content)) {
+                                        // Add id for JS scroll functionality and ensure proper structure
+                                        echo '<div class="story-text" id="story-scroll-content">' . $story_content . '</div>';
                                     } else {
-                                        echo '<p>Our story will be coming soon...</p>';
+                                        // Only show to administrators
+                                        if(current_user_can('administrator')) {
+                                            echo '<div class="admin-notice">';
+                                            echo '<p><strong>Admin Notice:</strong> Please add content to the "Our Story" field in Theme Settings.</p>';
+                                            echo '</div>';
+                                        } else {
+                                            echo '<p>Our story will be coming soon...</p>';
+                                        }
                                     }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
                     </div>
                 </div>

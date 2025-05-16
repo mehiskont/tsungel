@@ -29,7 +29,8 @@ a.button {
         background: $yellow;
         border-color: $yellow;
         color: $red;
-        
+        height: 36px; 
+        padding: 1px 22px;
         &:hover {
             background: $red;
             border-color: $red;

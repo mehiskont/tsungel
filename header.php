@@ -48,6 +48,8 @@
                         <?php /* Always show the story button like contact */ ?>
                         <a href="#" class="button button-yellow ts-story-trigger" data-modal="story">Story</a>
                         
+                        <a href="#" class="button button-yellow ts-facebook-trigger" data-modal="facebook">Events</a>
+                        
                         <?php if(get_field('contact-file','option')):  ?>
                             <a href="#" class="button button-yellow ts-contact-trigger" data-modal="contact">Contact</a>
                         <?php endif; ?>

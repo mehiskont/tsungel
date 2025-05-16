@@ -116,6 +116,14 @@
                 }
             }
             
+            /* Add styling for scroll container */
+            .scroll-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: visible;
+            }
+            
             /* Story text styling */
             .story-text {
                 position: absolute;
@@ -124,27 +132,35 @@
                 right: 0;
                 margin: 0 auto;
                 width: 60%;
-                max-height: 360px;
-                overflow-y: auto;
+                max-height: 250px; /* Reduced to stay within the oval */
+                overflow: hidden; /* Changed from overflow-y:auto to work with custom scrolling */
                 text-align: center;
                 color: #cc2f1c;
                 font-size: 20px;
                 font-weight: 500;
                 z-index: 10;
                 padding: 0 20px;
+                transform: translateY(0); /* Ensure initial position is correct */
+                transition: transform 0.1s ease-out; /* Smoother scrolling */
                 
-                /* Style the scrollbar */
-                &::-webkit-scrollbar {
+                /* Red scrollbar indicator - shown outside the container */
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: -15px;
                     width: 8px;
-                }
-                
-                &::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-                
-                &::-webkit-scrollbar-thumb {
+                    height: 0; /* Will be set dynamically based on content */
                     background-color: rgba(204, 47, 28, 0.5);
                     border-radius: 20px;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                
+                /* Show scrollbar when content is scrollable */
+                &.can-scroll::after {
+                    opacity: 1;
+                    height: 100px; /* Fixed height - visible portion indicator */
                 }
                 
                 p {

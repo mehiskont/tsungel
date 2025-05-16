@@ -3,31 +3,22 @@ import $ from 'jquery'
 export default {
   init () {
     // JavaScript to be fired on all pages
-    // when the modal is opened autoplay it
-    $('.contact-modal, .ts-contact-trigger').click(function (e) {
-      e.preventDefault()
-      $('.contact-popup').addClass('is-active')
-    })
-    $('.close-modal, .modal-background').click(function () {
-      $('.contact-popup').removeClass('is-active')
-      $('.menu-popup').removeClass('is-active')
-      $('.story-popup').removeClass('is-active')
-    })
-    // other menu
-    $('.menu-modal, .ts-menu-trigger').click(function (e) {
-      e.preventDefault()
-      $('.menu-popup').addClass('is-active')
-    })
-    // story modal
-    const self = this
-    $('.story-modal, .ts-story-trigger').click(function (e) {
-      e.preventDefault()
-      $('.story-popup').addClass('is-active')
+    // All modal management has been moved to footer.php using vanilla JS
+    // Only keep special functionality for scrolling and other features
 
-      // Initialize story content scrolling when modal opens
-      setTimeout(() => {
-        self.initStoryScroll()
-      }, 300)
+    // Store a reference to this for use in callbacks
+    const self = this
+
+    // Initialize story content scrolling when modal opens - hook into vanilla JS modal system
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.querySelector('.ts-story-trigger')) {
+        document.querySelector('.ts-story-trigger').addEventListener('click', function () {
+          // Initialize story content scrolling when modal opens
+          setTimeout(() => {
+            self.initStoryScroll()
+          }, 300)
+        })
+      }
     })
 
     // Initialize custom scroll functionality
@@ -44,6 +35,8 @@ export default {
 
     if (!$content.length) return
 
+    console.log('Initializing story scroll for:', $content)
+
     // Variables to track scroll state
     let isScrolling = false
     let startY = 0
@@ -53,23 +46,32 @@ export default {
 
     // Calculate dimensions and max scroll
     function updateScrollDimensions () {
+      // Get content and container dimensions
       const contentHeight = $content.outerHeight()
-      const containerHeight = $container.height()
+      const containerHeight = 250 // Fixed container height to match CSS
+
+      console.log('Scroll dimensions - Content height:', contentHeight, 'Container height:', containerHeight)
 
       // Only enable scrolling if content is taller than container
       if (contentHeight > containerHeight) {
         maxScroll = contentHeight - containerHeight
         $content.addClass('can-scroll')
+        console.log('Content can scroll, maxScroll:', maxScroll)
         return true
       } else {
         maxScroll = 0
         $content.removeClass('can-scroll')
+        console.log('Content does not need scrolling')
         return false
       }
     }
 
     // Initialize scroll dimensions
     if (!updateScrollDimensions()) return
+
+    // Reset scroll position on initialization
+    scrollTop = 0
+    $content.css('transform', 'translateY(0)')
 
     // Mouse wheel scroll handler
     $container.on('wheel', function (e) {
@@ -81,6 +83,7 @@ export default {
 
       // Apply the transformation
       $content.css('transform', `translateY(-${scrollTop}px)`)
+      console.log('Wheel scroll - new position:', scrollTop)
     })
 
     // Touch/Mouse down handlers
@@ -90,6 +93,7 @@ export default {
       startScrollY = scrollTop
 
       e.preventDefault()
+      console.log('Started scrolling at position:', startScrollY)
     })
 
     // Touch/Mouse move handlers
@@ -113,7 +117,10 @@ export default {
 
     // Touch/Mouse up handlers
     $(document).on('mouseup touchend', function () {
-      isScrolling = false
+      if (isScrolling) {
+        console.log('Ended scrolling at position:', scrollTop)
+        isScrolling = false
+      }
     })
 
     // Update dimensions on window resize
@@ -121,6 +128,16 @@ export default {
       scrollTop = 0
       $content.css('transform', 'translateY(0)')
       updateScrollDimensions()
+    })
+
+    // Add specific event when the Story modal opens
+    $('.ts-story-trigger').off('click.storyScroll').on('click.storyScroll', function () {
+      setTimeout(() => {
+        console.log('Story modal opened, resetting scroll')
+        scrollTop = 0
+        $content.css('transform', 'translateY(0)')
+        updateScrollDimensions()
+      }, 500) // Slightly longer timeout to ensure modal is fully open
     })
   },
 
@@ -273,17 +290,21 @@ export default {
         isScrolling = false
       })
 
-      // Also reinitialize scrolling when modal is opened
-      $('.story-modal, .ts-story-trigger').on('click', function () {
-        // Reset scroll position
-        $content.css('transform', 'translateY(0)')
-        $handle.css('top', '0')
+      // Also reinitialize scrolling when modal is opened - using vanilla JS
+      document.addEventListener('DOMContentLoaded', function () {
+        if (document.querySelector('.ts-story-trigger')) {
+          document.querySelector('.ts-story-trigger').addEventListener('click', function () {
+            // Reset scroll position
+            $content.css('transform', 'translateY(0)')
+            $handle.css('top', '0')
 
-        // Short delay to let modal animation complete
-        setTimeout(() => {
-          // Re-init scroll after modal is fully visible
-          initScroll()
-        }, 300)
+            // Short delay to let modal animation complete
+            setTimeout(() => {
+              // Re-init scroll after modal is fully visible
+              initScroll()
+            }, 300)
+          })
+        }
       })
 
       // Reset scroll on window resize
