@@ -4,18 +4,44 @@
     z-index: 9999;
     display: flex !important;
     visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+    
+    &.is-active {
+        visibility: visible;
+        opacity: 1;
+    }
+    
     &-background {
         background: rgba(0, 0, 0, 0.3) !important;
         opacity: 1;
+        cursor: pointer;
     }
-    .close-modal {
+    
+    .close-modal,
+    .modal-close {
         font-size: 50px;
-        color: yellow;
-        top: 100px;
+        color: #f9ed54;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        z-index: 10000;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 35px;
+        
         @media (max-width: $tablet) {
             top: 25px;
             right: 25px;
             margin-top: 0;
+        }
+        
+        &:hover {
+            color: #fff;
         }
     }
     &-content,
@@ -34,23 +60,39 @@
     right: 0;
     margin: 0 auto;
 }
+.modal-menu {
+    display: flex;
+    flex-direction: column;
+            h2 {
+            margin-bottom:24px;
+        }
+    &--buttons {
+        flex-direction: column;
+        .button {
+            margin-bottom: 24px;
+            @media (max-width: $mobile) {
+                margin-bottom:16px;
+            }
+        }
 
+    }
+}
 .modal-card,
 .modal-content {
     margin: 0 20px;
     max-height: calc(100vh - 160px);
-    overflow: auto;
+    overflow: visible;
     position: relative;
     width: auto;
     color: $red;
     margin-top: -10%;
-    a {
-        color:$red;
+    a:not(.button) {
+        color: $red;
     }
-      @media(max-width:$mobile) {
-          width:100%;
-          overflow:hidden;
-      }
+    @media (max-width: $mobile) {
+        width: 100%;
+        overflow: visible;
+    }
     .box {
         &--bg {
             position: relative;
@@ -67,6 +109,65 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            &.formenu {
+                top:25%;
+                @media(max-width:$tablet) {
+                    top:12%;
+                }
+            }
+            
+            /* Story text styling */
+            .story-text {
+                position: absolute;
+                top: -124px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 60%;
+                max-height: 360px;
+                overflow-y: auto;
+                text-align: center;
+                color: #cc2f1c;
+                font-size: 20px;
+                font-weight: 500;
+                z-index: 10;
+                padding: 0 20px;
+                
+                /* Style the scrollbar */
+                &::-webkit-scrollbar {
+                    width: 8px;
+                }
+                
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                
+                &::-webkit-scrollbar-thumb {
+                    background-color: rgba(204, 47, 28, 0.5);
+                    border-radius: 20px;
+                }
+                
+                p {
+                    margin-bottom: 10px;
+                }
+            }
+            
+            /* Admin notice styling */
+            .admin-notice {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                width: 80%;
+                text-align: center;
+                background-color: #f8f9fa;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                padding: 15px;
+                z-index: 10;
+            }
+            
             h2 {
                 font-size: 48px;
                 font-weight: bold;
@@ -77,6 +178,7 @@
             }
             p {
                 font-size: 26px;
+                text-align: center;
                 @media (max-width: $tablet) {
                     font-size: 18px;
                     line-height: 1.1;
@@ -85,7 +187,16 @@
         }
     }
 }
-
+/*
+.modal-contact.box,
+.modal-story-content.box {
+    background-color: #f6d007;
+    border-radius: 69%;
+    border: 3px solid #151605;
+    width: 700px;
+    height: 400px;
+}
+    */
 /* MODAL IFRAME
 ========================================= */
 .embed-responsive .embed-responsive-item {
