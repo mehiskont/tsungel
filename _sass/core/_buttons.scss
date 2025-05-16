@@ -7,22 +7,44 @@ a.button {
     font-size: 26px;
     height: auto;
     border-radius: 36px;
-    padding: 3px 19px;
-    line-height: 1;
+    padding: 6px 22px;
+    line-height: 1.2;
     min-width: 175px;
     text-transform: uppercase;
     transition: all 0.15s ease;
-    &.button-yellow,
-    &:hover {
+    font-family: "Attic", sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+    &.button-larger {
+        padding: 8px 30px;
+    }
+    
+    // Yellow button (default in header)
+    &.button-yellow {
         background: $yellow;
         border-color: $yellow;
         color: $red;
-    }
-    &.button-yellow {
+        
         &:hover {
             background: $red;
             border-color: $red;
             color: $yellow;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+    }
+    
+    // Regular button hover
+    &:hover {
+        background: $yellow;
+        border-color: $yellow;
+        color: $red;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 }

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx sass:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(sass:*)",
+      "Bash(npm run build:*)",
+      "Bash(git remote add:*)"
+    ],
+    "deny": []
+  }
+}

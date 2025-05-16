@@ -24,5 +24,7 @@ function scripts() {
       }
     }
     
+    // Add Bulma Modal FX from CDN
+    wp_enqueue_style('bulma-modal-fx', 'https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css', [], null);
 }
 add_action( 'wp_enqueue_scripts', 'scripts' );

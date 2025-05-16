@@ -1,0 +1,39 @@
+/* ======================================
+LAYOUTS
+========================================= */
+.page-template-default {
+    height: auto;
+    background: url("../assets/background.jpg") no-repeat center;
+    background-attachment: fixed;
+    .content-wrap {
+        padding: 164px 0 128px 0;
+       
+          @media (max-width: $tablet) {
+               padding: 48px 0;
+          }
+
+        h2,
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $yellow;
+            margin-bottom: 24px;
+            @media (max-width: $tablet) {
+                font-size: 30px;
+            }
+        }
+    }
+    figure.wp-block-image.size-large {
+        max-width: 100%;
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .footer-bottom--social {
+        @media (max-width: $tablet) {
+            display: none!important;
+        }
+    }
+}

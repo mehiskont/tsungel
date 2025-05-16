@@ -1,8 +1,18 @@
-/*
-Theme Name: Tsungel theme
-Description: Theme for the Tsungel bar-restaurant
-Version: 1.0
-Author: Tsungel
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/* Error: Can't find stylesheet to import.
+ *    ,
+ * 18 | @import "../node_modules/bulma/sass/utilities/_all.sass";
+ *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   _sass/vendors/_bulma-custom.scss 18:9  @import
+ *   _sass/main.scss 5:9                    root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a    \2577 \a 18 \2502  @import \"../node_modules/bulma/sass/utilities/_all.sass\";\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   _sass/vendors/_bulma-custom.scss 18:9  @import\a   _sass/main.scss 5:9                    root stylesheet";
+}

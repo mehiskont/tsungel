@@ -12,14 +12,20 @@ COMPONENTS
 @import "./components/header";
 @import "./components/footer";
 @import "./components/modal";
+
 /* ======================================
 LAYOUTS
 ========================================= */
 @import "./layout/home";
+@import "./layout/default";
 
 /* ======================================
     MAIN STYLES
 ========================================= */
 .fouc-fix {
     visibility: visible !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
 }

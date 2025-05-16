@@ -7,6 +7,8 @@ $family-sans-serif: "Attic", sans-serif;
 
 // site specific containers
 $gap: 16px;
+$tablet: 769px;
+$desktop: 1024px;
 $fullhd: 944px + (2 * $gap);
 
 // Update some of Bulma's component variables
@@ -15,16 +17,16 @@ $input-border-color: transparent;
 $input-shadow: none;
 
 // Import only what you need from Bulma
-@import "../node_modules/bulma/sass/utilities/_all.sass";
-@import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/grid/_all.sass";
-@import "../node_modules/bulma/sass/grid/columns.sass";
-@import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
-@import "../node_modules/bulma/sass/components/modal.sass";
-@import "../node_modules/bulma/sass/components/modal.sass";
-@import "../node_modules/bulma/sass/helpers/_all.sass";
-@import "../node_modules/bulma-modal-fx/dist/css/modal-fx.min.css";
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/base/_all.sass";
+@import "../../node_modules/bulma/sass/grid/_all.sass";
+@import "../../node_modules/bulma/sass/grid/columns.sass";
+@import "../../node_modules/bulma/sass/elements/button.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+@import "../../node_modules/bulma/sass/components/modal.sass";
+@import "../../node_modules/bulma/sass/helpers/_all.sass";
+// Using CDN for modal-fx since it's a CSS file, not SASS
+// @import "../../node_modules/bulma-modal-fx/dist/css/modal-fx.min.css";
 .hide {
    display: none !important;
 }

@@ -12,7 +12,7 @@
                             <?php
                             // Get the story content
                             if(function_exists('get_field')) {
-                                $story_content = get_field('our story', 'option');
+                                $story_content = get_field('our-story', 'option');
                                 
                                 if(!empty($story_content)) {
                                     // Simple solution - display with positioning to fit in the oval

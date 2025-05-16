@@ -23,3 +23,9 @@ require_once 'inc/shortcodes.php';
 
 // AJAX endpoints
 require_once 'inc/ajax.php';
+
+// ACF Fields
+require_once 'inc/acf-fields.php';
+
+// Debug Output
+require_once 'inc/debug-output.php';
